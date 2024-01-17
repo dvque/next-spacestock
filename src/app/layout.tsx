@@ -16,7 +16,21 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <header className='sticky top-0'>
+          <nav className='flex w-full relative p-4 border-b border-gray-800'>
+            <a href="/">SpaceStock</a>
+            <a href="/about">About</a>
+            <a href="/contact">Contact</a>
+          </nav>
+        </header>
+        {children}
+        <footer className='flex w-full relative p-4 border-t border-gray-800'>
+          <a href="/">SpaceStock</a>
+          <a href="/about">About</a>
+          <a href="/contact">Contact</a>
+        </footer>
+        </body>
     </html>
   )
 }
