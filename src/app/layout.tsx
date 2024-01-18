@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import { useState } from 'react';
 import './globals.css'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -23,38 +24,84 @@ export default function RootLayout({
               <div className="flex flex-row p-5 w-full items-center justify-center">
                 <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-star" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z" /></svg>
               </div>
-              <div className="flex flex-col py-5 gap-4 items-center w-full">
-                <a className='p-4 text-neutral-500 rounded-2xl hover:bg-neutral-900 hover:text-white hover:cursor-pointer '><svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-table" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M3 5a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-14z" /><path d="M3 10h18" /><path d="M10 3v18" /></svg></a>
-                <a className='p-4 text-neutral-500 rounded-2xl hover:bg-neutral-900 hover:text-white hover:cursor-pointer '>
+              <div className="flex flex-col py-5 gap-2 items-center w-full">
+                <a href="#" className='p-4 text-neutral-500 rounded-2xl hover:bg-neutral-900 hover:text-white  duration-300'><svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-table" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M3 5a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-14z" /><path d="M3 10h18" /><path d="M10 3v18" /></svg></a>
+                <a href="#" className='p-4 text-neutral-500 rounded-2xl hover:bg-neutral-900 hover:text-white duration-300'>
                   <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" /><path d="M21 21l-6 -6" /></svg>
                 </a>
-                <a className='p-4 text-neutral-500 rounded-2xl hover:bg-neutral-900 hover:text-white hover:cursor-pointer '>
+                <a href="#" className='p-4 text-neutral-500 rounded-2xl hover:bg-neutral-900 hover:text-white duration-300'>
                   <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-chart-histogram" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M3 3v18h18" /><path d="M20 18v3" /><path d="M16 16v5" /><path d="M12 13v8" /><path d="M8 16v5" /><path d="M3 11c6 0 5 -5 9 -5s3 5 9 5" /></svg>
                 </a>
-                <a className='p-4 text-neutral-500 rounded-2xl hover:bg-neutral-900 hover:text-white hover:cursor-pointer '>
+                <a href="#" className='p-4 text-neutral-500 rounded-2xl hover:bg-neutral-900 hover:text-white duration-300'>
                   <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-book-2" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M19 4v16h-12a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12z" /><path d="M19 16h-12a2 2 0 0 0 -2 2" /><path d="M9 8h6" /></svg>
                 </a>
               </div>
-
             </div>
           </div>
           <div className="basis-1/6 border-x border-gray-600">
-            <div className="flex flex-col  h-full">
-              <div className="flex flex-row border-b border-gray-600 p-5 w-full">
-                <div>Dashboard</div>
+            <div className="flex flex-col h-full">
+              <div className="flex flex-row border-b border-gray-600 p-5 w-full max-h-16">
+                <h1 className='text-xl font-semibold'>Dashboard</h1>
               </div>
               <div className="flex flex-col p-5 w-full h-full">
-                <div>01</div>
-                <div>02</div>
+                <ul className="space-y-2 font-medium">
+                  <li>
+                    <a href="#" className="flex items-center p-2 rounded-lg group text-neutral-500 hover:bg-neutral-900 hover:text-white active:bg-neutral-900 active:text-white">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-box-seam" width="24" height="24" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M12 3l8 4.5v9l-8 4.5l-8 -4.5v-9l8 -4.5" />
+                        <path d="M12 12l8 -4.5" />
+                        <path d="M8.2 9.8l7.6 -4.6" />
+                        <path d="M12 12v9" />
+                        <path d="M12 12l-8 -4.5" />
+                      </svg>
+                      <span className="ms-3">Product</span>
+                    </a>
+                  </li>
+                  <li>
+                    <button type="button" className="flex items-center w-full p-2 text-base text-neutral-500 transition duration-75 rounded-lg group hover:bg-neutral-900 hover:text-white active:bg-neutral-900 active:text-white " aria-controls="dropdown-example" data-collapse-toggle="dropdown-example">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-paper-bag" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M8 3h8a2 2 0 0 1 2 2v1.82a5 5 0 0 0 .528 2.236l.944 1.888a5 5 0 0 1 .528 2.236v5.82a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-5.82a5 5 0 0 1 .528 -2.236l1.472 -2.944v-3a2 2 0 0 1 2 -2z" /><path d="M14 15m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /><path d="M6 21a2 2 0 0 0 2 -2v-5.82a5 5 0 0 0 -.528 -2.236l-1.472 -2.944" /><path d="M11 7h2" /></svg>
+
+                      <span className="flex-1 ms-3 text-left rtl:text-right whitespace-nowrap">Commerce</span>
+
+                      <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-arrow-down" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M12 5l0 14" /><path d="M18 13l-6 6" /><path d="M6 13l6 6" /></svg>
+                    </button>
+                    <ul id="dropdown-example" className="hidden py-2 space-y-2">
+                      <li>
+                        <a href="#" className="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Products</a>
+                      </li>
+                      <li>
+                        <a href="#" className="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Billing</a>
+                      </li>
+                      <li>
+                        <a href="#" className="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Invoice</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a href="#" className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-cash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M7 9m0 2a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v6a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2z" /><path d="M14 14m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /><path d="M17 9v-2a2 2 0 0 0 -2 -2h-10a2 2 0 0 0 -2 2v6a2 2 0 0 0 2 2h2" /></svg>
+                      <span className="flex-1 ms-3 whitespace-nowrap">Cash</span>
+                      <span className="inline-flex items-center justify-center px-2 ms-3 text-sm font-medium text-gray-800 bg-gray-100 rounded-full dark:bg-gray-700 dark:text-gray-300">Pro</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-mailbox" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M10 21v-6.5a3.5 3.5 0 0 0 -7 0v6.5h18v-6a4 4 0 0 0 -4 -4h-10.5" /><path d="M12 11v-8h4l2 2l-2 2h-4" /><path d="M6 15h1" /></svg>
+                      <span className="flex-1 ms-3 whitespace-nowrap">Inbox</span>
+                      <span className="inline-flex items-center justify-center w-3 h-3 p-3 ms-3 text-sm font-medium text-blue-800 bg-blue-100 rounded-full dark:bg-blue-900 dark:text-blue-300">3</span>
+                    </a>
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
           <div className="grow ">
             <div className="flex flex-col  h-full">
-              <div className="flex flex-row border-b border-gray-600  p-5 w-full sticky top-0">
-                <div>Demo</div>
+              <div className="flex flex-row border-b border-gray-600 bg-neutral-950 p-5 w-full sticky top-0 max-h-16">
+                <h2 className='text-lg font-medium'>Demo</h2>
               </div>
-              <div className="flex flex-row  p-5 w-full h-full">
+              <div className="flex flex-row border rounded-xl  m-5 p-5 bg-neutral-900 h-full">
                 {children}
               </div>
             </div>
