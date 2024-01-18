@@ -17,20 +17,37 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <header className='sticky top-0'>
-          <nav className='flex w-full relative p-4 border-b border-gray-800'>
-            <a href="/">SpaceStock</a>
-            <a href="/about">About</a>
-            <a href="/contact">Contact</a>
-          </nav>
-        </header>
-        {children}
-        <footer className='flex w-full relative p-4 border-t border-gray-800'>
-          <a href="/">SpaceStock</a>
-          <a href="/about">About</a>
-          <a href="/contact">Contact</a>
-        </footer>
-        </body>
+        <div className="flex flex-row">
+          <div className="basis-20 p-5 border h-screen">
+            <div className="flex flex-col items-center gap-5 border">
+              <div>01</div>
+              <div>02</div>
+              <div>03</div>
+            </div>
+          </div>
+          <div className="basis-1/6 border">
+            <div className="flex flex-col border h-full">
+              <div className="flex flex-row border p-5 w-full">
+                <div>Dashboard</div>
+              </div>
+              <div className="flex flex-col border p-5 w-full h-full">
+                <div>01</div>
+                <div>02</div>
+              </div>
+            </div>
+          </div>
+          <div className="grow border">
+            <div className="flex flex-col border h-full">
+              <div className="flex flex-row border p-5 w-full sticky top-0">
+                <div>Demo</div>
+              </div>
+              <div className="flex flex-row border p-5 w-full h-full">
+                {children}
+              </div>
+            </div>
+          </div>
+        </div>
+      </body>
     </html>
   )
 }
