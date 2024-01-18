@@ -18,30 +18,32 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <div className="flex flex-row">
-          <div className="basis-20 p-5 border h-screen">
-            <div className="flex flex-col items-center gap-5 border">
-              <div>01</div>
+          <div className="basis-20 max-w-20  h-screen">
+            <div className="flex flex-col items-center ">
+              <div className="flex flex-row  p-5 w-full">
+                <div>Logo</div>
+              </div>
               <div>02</div>
               <div>03</div>
             </div>
           </div>
-          <div className="basis-1/6 border">
-            <div className="flex flex-col border h-full">
-              <div className="flex flex-row border p-5 w-full">
+          <div className="basis-1/6 border-x border-gray-600">
+            <div className="flex flex-col  h-full">
+              <div className="flex flex-row border-b border-gray-600 p-5 w-full">
                 <div>Dashboard</div>
               </div>
-              <div className="flex flex-col border p-5 w-full h-full">
+              <div className="flex flex-col p-5 w-full h-full">
                 <div>01</div>
                 <div>02</div>
               </div>
             </div>
           </div>
-          <div className="grow border">
-            <div className="flex flex-col border h-full">
-              <div className="flex flex-row border p-5 w-full sticky top-0">
+          <div className="grow ">
+            <div className="flex flex-col  h-full">
+              <div className="flex flex-row border-b border-gray-600  p-5 w-full sticky top-0">
                 <div>Demo</div>
               </div>
-              <div className="flex flex-row border p-5 w-full h-full">
+              <div className="flex flex-row  p-5 w-full h-full">
                 {children}
               </div>
             </div>
