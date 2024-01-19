@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { useState } from 'react';
 import './globals.css'
+import Link from 'next/link';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -18,26 +19,48 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="flex flex-row">
-          <div className="basis-20 max-w-20 h-screen">
-            <div className="flex flex-col h-full bg-neutral-950">
+        <main className="flex flex-row">
+          <header className="basis-20 max-w-20 h-screen">
+            <nav className="flex flex-col h-full bg-neutral-950">
               <div className="flex flex-row p-5 w-full items-center justify-center">
                 <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-star" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z" /></svg>
               </div>
               <div className="flex flex-col py-5 gap-2 items-center w-full">
-                <a href="#" className='p-4 text-neutral-500 rounded-2xl hover:bg-neutral-900 hover:text-white  duration-300'><svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-table" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M3 5a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-14z" /><path d="M3 10h18" /><path d="M10 3v18" /></svg></a>
-                <a href="#" className='p-4 text-neutral-500 rounded-2xl hover:bg-neutral-900 hover:text-white duration-300'>
-                  <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" /><path d="M21 21l-6 -6" /></svg>
-                </a>
-                <a href="#" className='p-4 text-neutral-500 rounded-2xl hover:bg-neutral-900 hover:text-white duration-300'>
-                  <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-chart-histogram" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M3 3v18h18" /><path d="M20 18v3" /><path d="M16 16v5" /><path d="M12 13v8" /><path d="M8 16v5" /><path d="M3 11c6 0 5 -5 9 -5s3 5 9 5" /></svg>
-                </a>
-                <a href="#" className='p-4 text-neutral-500 rounded-2xl hover:bg-neutral-900 hover:text-white duration-300'>
-                  <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-book-2" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M19 4v16h-12a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12z" /><path d="M19 16h-12a2 2 0 0 0 -2 2" /><path d="M9 8h6" /></svg>
-                </a>
+                <Link href="/dashboard" className='p-4 text-neutral-500 rounded-2xl hover:bg-neutral-900 hover:text-white duration-300'>
+                  <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-table" width="24" height="24" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M3 5a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-14z" />
+                    <path d="M3 10h18" />
+                    <path d="M10 3v18" />
+                  </svg>
+
+                </Link>
+                <Link href="/search" className='p-4 text-neutral-500 rounded-2xl hover:bg-neutral-900 hover:text-white duration-300'>
+                  <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
+                    <path d="M21 21l-6 -6" /></svg>
+                </Link>
+                <Link href="/chart" className='p-4 text-neutral-500 rounded-2xl hover:bg-neutral-900 hover:text-white duration-300'>
+                  <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-chart-histogram" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M3 3v18h18" />
+                    <path d="M20 18v3" />
+                    <path d="M16 16v5" />
+                    <path d="M12 13v8" />
+                    <path d="M8 16v5" />
+                    <path d="M3 11c6 0 5 -5 9 -5s3 5 9 5" /></svg>
+                </Link>
+                <Link href="/doc" className='p-4 text-neutral-500 rounded-2xl hover:bg-neutral-900 hover:text-white duration-300'>
+                  <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-book-2" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M19 4v16h-12a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12z" />
+                    <path d="M19 16h-12a2 2 0 0 0 -2 2" />
+                    <path d="M9 8h6" /></svg>
+                </Link>
               </div>
-            </div>
-          </div>
+            </nav>
+          </header>
           <div className="basis-1/6 border-x border-gray-600">
             <div className="flex flex-col h-full">
               <div className="flex flex-row border-b border-gray-600 p-5 w-full max-h-16">
@@ -46,7 +69,7 @@ export default function RootLayout({
               <div className="flex flex-col p-5 w-full h-full">
                 <ul className="space-y-2 font-medium">
                   <li>
-                    <a href="#" className="flex items-center p-2 rounded-lg group text-neutral-500 hover:bg-neutral-900 hover:text-white active:bg-neutral-900 active:text-white">
+                    <Link href="/dashboard/product" className="flex items-center p-2 rounded-lg group text-neutral-500 hover:bg-neutral-900 hover:text-white active:bg-neutral-900 active:text-white">
                       <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-box-seam" width="24" height="24" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                         <path d="M12 3l8 4.5v9l-8 4.5l-8 -4.5v-9l8 -4.5" />
@@ -56,7 +79,7 @@ export default function RootLayout({
                         <path d="M12 12l-8 -4.5" />
                       </svg>
                       <span className="ms-3">Product</span>
-                    </a>
+                    </Link>
                   </li>
                   <li>
                     <button type="button" className="flex items-center w-full p-2 text-base text-neutral-500 transition duration-75 rounded-lg group hover:bg-neutral-900 hover:text-white active:bg-neutral-900 active:text-white " aria-controls="dropdown-example" data-collapse-toggle="dropdown-example">
@@ -96,17 +119,17 @@ export default function RootLayout({
               </div>
             </div>
           </div>
-          <div className="grow ">
-            <div className="flex flex-col  h-full">
+          <div className="grow">
+            <div className="flex flex-col  h-full bg-neutral-950">
               <div className="flex flex-row border-b border-gray-600 bg-neutral-950 p-5 w-full sticky top-0 max-h-16">
                 <h2 className='text-lg font-medium'>Demo</h2>
               </div>
-              <div className="flex flex-row border rounded-xl  m-5 p-5 bg-neutral-900 h-full">
+              <div className="flex flex-row border bg-neutral-950 rounded-xl  m-5 p-5  h-full">
                 {children}
               </div>
             </div>
           </div>
-        </div>
+        </main>
       </body>
     </html>
   )
