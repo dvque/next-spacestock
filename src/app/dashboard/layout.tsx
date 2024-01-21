@@ -50,37 +50,34 @@ export default function DashboardLayout({
     children: React.ReactNode
 }) {
     return (
-        <>
-            <div className="basis-1/6 border-x border-gray-600">
-                <div className="flex flex-col h-full">
-                    <div className="flex flex-row border-b border-gray-600 p-5 w-full max-h-16">
-                        <h1 className="text-xl font-semibold">Dashboard</h1>
-                    </div>
-                    <div className="flex flex-col p-5 w-full h-full">
-                        <ul className="space-y-2 font-medium">
-                            {links.map((link) => (
-                                <SidenavContext
-                                    key={link.name}
-                                    name={link.name}
-                                    href={link.href}
-                                    icon={link.icon}
-                                    badge={link.badge}
-                                />
-                            ))}
-                        </ul>
-                    </div>
+        <div className="flex">
+            <div className="flex flex-col h-full min-w-80 border-x border-gray-600 ">
+                <div className="flex flex-row border-b border-gray-600 p-5 w-full max-h-16 bg-neutral-950">
+                    <h1 className="text-xl font-semibold">Dashboard</h1>
+                </div>
+                <div className="flex flex-col overflow-auto p-5 w-full ">
+                    <ul className="space-y-2 font-medium">
+                        {links.map((link) => (
+                            <SidenavContext
+                                key={link.name}
+                                name={link.name}
+                                href={link.href}
+                                icon={link.icon}
+                                badge={link.badge}
+                            />
+                        ))}
+                    </ul>
                 </div>
             </div>
-            <div className="grow">
-                <div className="flex flex-col h-full bg-neutral-950">
-                    <div className="flex flex-row border-b border-gray-600 bg-neutral-950 p-5 w-full sticky top-0 max-h-16">
-                        <h2 className="text-lg font-medium">Demo</h2>
-                    </div>
-                    <div className="flex flex-row border bg-neutral-950 rounded-xl m-5 h-full">
-                        {children}
-                    </div>
+
+            <div className="flex flex-col h-screen bg-neutral-950">
+                <div className="flex flex-row border-b border-gray-600 bg-neutral-950 p-5 w-full top-0 max-h-16">
+                    <h2 className="text-lg font-medium">Demo</h2>
+                </div>
+                <div className="flex flex-row p-px overflow-auto bg-neutral-950 rounded-xl m-5 h-full">
+                    {children}
                 </div>
             </div>
-        </>
+        </div>
     )
 }

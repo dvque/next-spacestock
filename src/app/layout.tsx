@@ -20,7 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`flex flex-row ${inter.className}`}>
-        <header className="basis-20 max-w-20 h-screen">
+        <header className="basis-20 min-w-20 h-screen sticky top-0">
           <SideNav />
         </header>
         {children}
