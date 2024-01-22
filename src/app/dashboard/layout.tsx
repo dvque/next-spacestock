@@ -74,7 +74,7 @@ export default function DashboardLayout({
                 <div className="flex flex-row border-b border-gray-600 bg-neutral-950 p-5 w-full top-0 max-h-16">
                     <h2 className="text-lg font-medium">Demo</h2>
                 </div>
-                <div className="flex flex-row p-px overflow-auto bg-neutral-950 rounded-xl m-5 h-full">
+                <div className="flex flex-row p-px overflow-auto bg-neutral-950  m-5 h-full">
                     {children}
                 </div>
             </div>

@@ -101,6 +101,26 @@ const salesPeople = [
         delta: "underperforming",
         deltaType: "moderateDecrease",
     },
+    {
+        name: "Joe Sachs",
+        leads: 49,
+        sales: "1,230,000",
+        quota: "1,800,000",
+        variance: "medium",
+        region: "Region B",
+        delta: "underperforming",
+        deltaType: "moderateDecrease",
+    },
+    {
+        name: "Joe Sachs",
+        leads: 49,
+        sales: "1,230,000",
+        quota: "1,800,000",
+        variance: "medium",
+        region: "Region B",
+        delta: "underperforming",
+        deltaType: "moderateDecrease",
+    },
 ];
 
 const categories = [
@@ -163,26 +183,18 @@ export default async function Page() {
                             </Text>
                         </Card>
 
-                        {categories.map((item) => (
-                            <Card key={item.title}>
-                                <Text>{item.title}</Text>
-                                <Metric>{item.metric}</Metric>
-                                <Callout
-                                    className="mt-6"
-                                    title={item.status}
-                                    icon={statusMapping[item.status].icon}
-                                    color={statusMapping[item.status].color}
-                                >
-                                    {item.text}
-                                </Callout>
-                            </Card>
-                        ))}
+                        <Card>
+                            <Text>Sales</Text>
+
+
+                        </Card>
+
 
                     </div>
                 </Col>
 
                 {/* Main section */}
-                <Col numColSpanLg={4} className="sticky">
+                <Col numColSpanLg={4} >
                     {/* <Card className="h-full">
                         <div className="h-60" />
                     </Card> */}
@@ -196,12 +208,10 @@ export default async function Page() {
                             categories={["SemiAnalysis"]}
                             colors={["indigo", "cyan"]}
                         />
-
-
                     </Card>
-                    <Card className="mt-5">
+                    <Card className="h-20 mt-5 overflow-auto">
                         <Title>Table</Title>
-                        <Table>
+                        <Table >
                             <TableHead>
                                 <TableRow>
                                     <TableHeaderCell>Name</TableHeaderCell>
