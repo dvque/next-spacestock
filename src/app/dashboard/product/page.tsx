@@ -1,7 +1,10 @@
 import { Card, Title, Text, Grid, Col, AreaChart, Metric, Divider, Subtitle, TableCell, TableBody, TableHeaderCell, TableRow, TableHead, BadgeDelta, Table, Callout, Flex, Button } from "@tremor/react";
 
-import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
+import { Client } from "@notionhq/client";
+// import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
+
 import { cookies } from 'next/headers';
+import { PageObjectResponse } from "@notionhq/client/build/src/api-endpoints";
 
 const chartdata = [
     {
@@ -159,8 +162,34 @@ const statusMapping = {
 
 
 export default async function Page() {
-    const supabase = createServerComponentClient({ cookies })
-    const { data } = await supabase.from('notes').select('*')
+    // const supabase = createServerComponentClient({ cookies })
+    // const { data } = await supabase.from('notes').select('*')
+    const notion = new Client({ auth: process.env.NOTION_KEY });
+
+    const data = await notion.databases.query({
+        database_id: "90e8848732c64ad68b0ed696b0b98498"
+    })
+
+    const objects = data.results
+        .filter((page): page is PageObjectResponse => 'properties' in page)
+        .map((page) => {
+            const properties = page.properties;
+            console.log("properties:", properties)
+            const title = 'title' in properties.name ? properties.name.title[0].plain_text : undefined;
+            const href = 'rich_text' in properties.href ? properties.href.rich_text[0]?.plain_text : undefined;
+            const icon = 'rich_text' in properties.icon ? properties.icon.rich_text[0]?.plain_text : undefined;
+            // other properties...
+            return {
+                id: page.id,
+                title,
+                href,
+                icon
+                // other properties...
+            };
+        });
+
+    console.log(objects)
+
 
 
     return (
@@ -184,7 +213,7 @@ export default async function Page() {
                         </Card>
 
                         <Card>
-                            <Text>Sales</Text>
+                            <Text>Noticias</Text>
 
 
                         </Card>
@@ -209,7 +238,7 @@ export default async function Page() {
                             colors={["indigo", "cyan"]}
                         />
                     </Card>
-                    <Card className="h-20 mt-5 overflow-auto">
+                    {/* <Card className="h-20 mt-5 overflow-auto">
                         <Title>Table</Title>
                         <Table >
                             <TableHead>
@@ -241,7 +270,7 @@ export default async function Page() {
                                 ))}
                             </TableBody>
                         </Table>
-                    </Card>
+                    </Card> */}
 
                 </Col>
 
