@@ -162,33 +162,36 @@ const statusMapping = {
 
 
 export default async function Page() {
+    //SUPABASE
     // const supabase = createServerComponentClient({ cookies })
     // const { data } = await supabase.from('notes').select('*')
-    const notion = new Client({ auth: process.env.NOTION_KEY });
 
-    const data = await notion.databases.query({
-        database_id: "90e8848732c64ad68b0ed696b0b98498"
-    })
+    // NOTION API
+    // const notion = new Client({ auth: process.env.NOTION_KEY });
 
-    const objects = data.results
-        .filter((page): page is PageObjectResponse => 'properties' in page)
-        .map((page) => {
-            const properties = page.properties;
-            console.log("properties:", properties)
-            const title = 'title' in properties.name ? properties.name.title[0].plain_text : undefined;
-            const href = 'rich_text' in properties.href ? properties.href.rich_text[0]?.plain_text : undefined;
-            const icon = 'rich_text' in properties.icon ? properties.icon.rich_text[0]?.plain_text : undefined;
-            // other properties...
-            return {
-                id: page.id,
-                title,
-                href,
-                icon
-                // other properties...
-            };
-        });
+    // const data = await notion.databases.query({
+    //     database_id: "90e8848732c64ad68b0ed696b0b98498"
+    // })
 
-    console.log(objects)
+    // const objects = data.results
+    //     .filter((page): page is PageObjectResponse => 'properties' in page)
+    //     .map((page) => {
+    //         const properties = page.properties;
+    //         console.log("properties:", properties)
+    //         const title = 'title' in properties.name ? properties.name.title[0].plain_text : undefined;
+    //         const href = 'rich_text' in properties.href ? properties.href.rich_text[0]?.plain_text : undefined;
+    //         const icon = 'rich_text' in properties.icon ? properties.icon.rich_text[0]?.plain_text : undefined;
+    //         // other properties...
+    //         return {
+    //             id: page.id,
+    //             title,
+    //             href,
+    //             icon
+    //             // other properties...
+    //         };
+    //     });
+
+    // console.log(objects)
 
 
 
